@@ -1,0 +1,7 @@
+/.idea
+/storage/logs/*
+vendor
+.env
+public/tests_reports
+tests/_reports
+storage

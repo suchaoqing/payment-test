@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true">
+    <testsuites>
+        <testsuite name="Application Test Suite">
+            <directory suffix="Test.php">./tests</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./app</directory>
+        </whitelist>
+    </filter>
+    <php>
+        <env name="APP_ENV" value="testing" force="true"/>
+        <env name="CACHE_DRIVER" value="array" force="true"/>
+        <env name="QUEUE_CONNECTION" value="sync" force="true"/>
+        <env name="DB_DATABASE" value="payment_test_tests" force="true"/>
+    </php>
+    <logging>
+        <log type="coverage-clover" target="tests/_reports/logs/clover.xml"/>
+        <log type="testdox-text" target="tests/_reports/testdox/executed.txt"/>
+        <log type="coverage-html" target="public/tests_reports" lowUpperBound="50" highLowerBound="80"/>
+    </logging>
+</phpunit>

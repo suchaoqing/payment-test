@@ -1,0 +1,14 @@
+#! /bin/ash
+
+exec 2>&1
+set -e
+
+umask 022
+
+PROGARGS=" -f -L 8 "
+PROGHOME="/"
+PROGNAME="/usr/sbin/crond"
+
+export HOME=/root
+
+cd  "${PROGHOME}" && /usr/bin/crontab /etc/crontabs/docker && exec $PROGNAME $PROGARGS
